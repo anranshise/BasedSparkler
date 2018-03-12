@@ -51,6 +51,7 @@ class FairFetcher(val job: SparklerJob, val resources: Iterator[Resource], val d
     //STEP: Fetch
     val startTime = System.currentTimeMillis()
     data.fetchedData = fetchedData.next
+    println("url get!!!!!!!!!!!!!!!!!")
     val endTime = System.currentTimeMillis()
     data.fetchedData.getResource.setFetchTimestamp(data.fetchedData.getFetchedAt)
     lastHit = data.fetchedData.getResource.getUrl
