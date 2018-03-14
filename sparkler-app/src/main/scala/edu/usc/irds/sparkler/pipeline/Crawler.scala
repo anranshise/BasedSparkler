@@ -169,6 +169,7 @@ class Crawler extends CliTool {
     solrc.close()
     //PluginService.shutdown(job)
     LOG.info("Shutting down Spark CTX..")
+    LOG.info("url get end!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     sc.stop()
   }
 
