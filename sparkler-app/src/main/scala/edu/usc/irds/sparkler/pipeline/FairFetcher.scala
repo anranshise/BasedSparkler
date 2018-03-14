@@ -21,6 +21,7 @@ import java.util.concurrent.atomic.AtomicLong
 
 import edu.usc.irds.sparkler.base.Loggable
 import edu.usc.irds.sparkler.model._
+import edu.usc.irds.sparkler.pipeline.Crawler.LOG
 
 /**
   * Created by thammegr on 6/7/16.
@@ -51,7 +52,7 @@ class FairFetcher(val job: SparklerJob, val resources: Iterator[Resource], val d
     //STEP: Fetch
     val startTime = System.currentTimeMillis()
     data.fetchedData = fetchedData.next
-    println("url get!!!!!!!!!!!!!!!!!")
+    LOG.info("url get!!!!!!!!!!!!!!!!!")
     val endTime = System.currentTimeMillis()
     data.fetchedData.getResource.setFetchTimestamp(data.fetchedData.getFetchedAt)
     lastHit = data.fetchedData.getResource.getUrl
