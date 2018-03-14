@@ -151,6 +151,7 @@ class Crawler extends CliTool {
 
       val rdd = new CrawlDbRDD(sc, job, sortBy = sortBy, maxGroups = topG,
         topN = topN, groupBy = groupBy)
+      LOG.info("url get !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
       val fetchedRdd = rdd.map(r => (r.getGroup, r))
         .groupByKey()
         .flatMap({ case (grp, rs) => new FairFetcher(job, rs.iterator, localFetchDelay,
